@@ -35,10 +35,10 @@ describe("Iteration 4", () => {
     });
 
     beforeEach(() => {
-      scope = nock(API_URL).get("/beers").reply(200, beers);
+      scope = nock(API_URL).get("/beers/").reply(200, beers);
 
       render(
-        <MemoryRouter initialEntries={["/beers"]}>
+        <MemoryRouter initialEntries={["/beers/"]}>
           <AllBeersPage />
         </MemoryRouter>
       );
@@ -68,7 +68,9 @@ describe("Iteration 4", () => {
       expect(screen.getByText("Created by: Contributor 1")).toBeInTheDocument();
 
       expect(screen.getByText("Tagline 2")).toBeInTheDocument();
-      expect(screen.getByText("Created by: Contributor 2")).toBeInTheDocument();
+      expect(screen.getByText((content, element) => {
+    return content.includes("Created by: Contributor 2") && element.tagName.toLowerCase() === "p";
+  })).toBeInTheDocument();
     });
 
     test("renders a link to Beer Details Page for each beer", async () => {

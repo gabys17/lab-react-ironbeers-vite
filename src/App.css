@@ -1,0 +1,26 @@
+.navbar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: aqua;
+} 
+
+.cards-container-home {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	flex-direction: column;
+}
+
+.all-beers-card, .random-beer-card, .new-beer-card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin: 10px;
+	padding: 10px;
+	background-color: #fff;
+	border-radius: 5px;
+	border: 2px solid #000;
+	width: 800px;
